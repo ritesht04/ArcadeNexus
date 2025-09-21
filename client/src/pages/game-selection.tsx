@@ -237,10 +237,6 @@ export default function GameSelection() {
     }
   };
 
-  const handleShowMoreGames = () => {
-    console.log('Showing more games');
-  };
-
   const handleShowRules = () => {
     console.log('Showing game rules');
   };
@@ -329,47 +325,6 @@ export default function GameSelection() {
             ))}
           </motion.div>
 
-          {/* More Games Indicator */}
-          <motion.div 
-            className="relative mb-8"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <div className="flex items-center justify-center">
-              <div className="neon-border rounded-xl p-8 text-center backdrop-blur-md bg-muted/50">
-                <motion.div 
-                  className="animate-pulse-glow w-16 h-16 mx-auto mb-4 rounded-full border-2 border-primary/50 flex items-center justify-center"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <ChevronRightIcon className="w-8 h-8 text-primary" />
-                </motion.div>
-                <h3 className="font-space text-xl font-bold mb-2 text-primary">More Games Available</h3>
-                <p className="text-muted-foreground text-sm mb-4">Discover additional gaming experiences</p>
-                <motion.button 
-                  className="px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium hover:from-secondary hover:to-accent transition-all duration-300 neon-glow min-h-12"
-                  onClick={handleShowMoreGames}
-                  data-testid="button-more-games"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Browse All Games
-                </motion.button>
-              </div>
-            </div>
-            
-            {/* Scroll Indicator */}
-            <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 more-games-indicator w-32 h-full pointer-events-none flex items-center justify-end pr-6">
-              <motion.div 
-                className="animate-float"
-                animate={{ x: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <ChevronRightIcon className="w-6 h-6 text-primary/60" />
-              </motion.div>
-            </div>
-          </motion.div>
 
           {/* Action Buttons */}
           <motion.div 
