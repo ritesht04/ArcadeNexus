@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(224 71% 4%);
+  --foreground: hsl(248 250 252);
+  --card: hsl(30 41 59);
+  --card-foreground: hsl(248 250 252);
+  --popover: hsl(224 71% 4%);
+  --popover-foreground: hsl(248 250 252);
+  --primary: hsl(183 100% 43%);
+  --primary-foreground: hsl(255 255 255);
+  --secondary: hsl(258 90% 66%);
+  --secondary-foreground: hsl(255 255 255);
+  --muted: hsl(220 13% 18%);
+  --muted-foreground: hsl(215 20% 65%);
+  --accent: hsl(142 76% 36%);
+  --accent-foreground: hsl(255 255 255);
+  --destructive: hsl(356.3033 90.5579% 54.3137%);
+  --destructive-foreground: hsl(255 255 255);
+  --border: hsl(220 13% 18%);
+  --input: hsl(220 13% 18%);
+  --ring: hsl(183 100% 43%);
+  --chart-1: hsl(183 100% 43%);
+  --chart-2: hsl(142 76% 36%);
+  --chart-3: hsl(258 90% 66%);
+  --chart-4: hsl(147.1429 78.5047% 41.9608%);
+  --chart-5: hsl(341.4894 75.2000% 50.9804%);
+  --sidebar: hsl(220 13% 18%);
+  --sidebar-foreground: hsl(215 20% 65%);
+  --sidebar-primary: hsl(183 100% 43%);
+  --sidebar-primary-foreground: hsl(255 255 255);
+  --sidebar-accent: hsl(220 13% 18%);
+  --sidebar-accent-foreground: hsl(183 100% 43%);
+  --sidebar-border: hsl(220 13% 18%);
+  --sidebar-ring: hsl(183 100% 43%);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --font-space: 'Space Grotesk', sans-serif;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: hsl(224 71% 4%);
+  --foreground: hsl(248 250 252);
+  --card: hsl(220 13% 18%);
+  --card-foreground: hsl(248 250 252);
+  --popover: hsl(224 71% 4%);
+  --popover-foreground: hsl(248 250 252);
+  --primary: hsl(183 100% 43%);
+  --primary-foreground: hsl(255 255 255);
+  --secondary: hsl(258 90% 66%);
+  --secondary-foreground: hsl(255 255 255);
+  --muted: hsl(220 13% 18%);
+  --muted-foreground: hsl(215 20% 65%);
+  --accent: hsl(142 76% 36%);
+  --accent-foreground: hsl(255 255 255);
+  --destructive: hsl(356.3033 90.5579% 54.3137%);
+  --destructive-foreground: hsl(255 255 255);
+  --border: hsl(220 13% 18%);
+  --input: hsl(220 13% 18%);
+  --ring: hsl(183 100% 43%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background: linear-gradient(135deg, hsl(224 71% 4%) 0%, hsl(269 15% 8%) 25%, hsl(224 71% 4%) 50%, hsl(283 39% 12%) 75%, hsl(224 71% 4%) 100%);
+    background-image: 
+      radial-gradient(circle at 20% 20%, hsl(283 89% 50% / 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(197 100% 63% / 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(142 76% 36% / 0.15) 0%, transparent 50%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .neon-border {
+    border: 1px solid transparent;
+    background: linear-gradient(hsl(var(--muted)), hsl(var(--muted))) padding-box,
+                linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent))) border-box;
+  }
+
+  .neon-glow {
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.3),
+      0 0 40px hsl(var(--primary) / 0.2),
+      0 0 60px hsl(var(--primary) / 0.1);
+  }
+
+  .game-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+  }
+
+  .game-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 20px 40px hsl(var(--primary) / 0.4),
+      0 0 60px hsl(var(--secondary) / 0.3),
+      inset 0 1px 0 hsl(255 255 255 / 0.1);
+  }
+
+  .game-card.selected {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 
+      0 25px 50px hsl(var(--accent) / 0.5),
+      0 0 80px hsl(var(--accent) / 0.4),
+      inset 0 1px 0 hsl(255 255 255 / 0.2);
+  }
+
+  .glow-text {
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+
+  .type-badge {
+    background: linear-gradient(135deg, hsl(var(--secondary) / 0.8), hsl(var(--primary) / 0.6));
+    backdrop-filter: blur(10px);
+  }
+
+  .more-games-indicator {
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--background) / 0.8) 50%, hsl(var(--background)) 100%);
+  }
+}
+
+@layer utilities {
+  .font-space {
+    font-family: var(--font-space);
+  }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.4); }
+  100% { box-shadow: 0 0 40px hsl(var(--primary) / 0.8), 0 0 80px hsl(var(--primary) / 0.4); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes neon-pulse {
+  0% { text-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--primary)); }
+  100% { text-shadow: 0 0 20px hsl(var(--primary)), 0 0 30px hsl(var(--primary)), 0 0 60px hsl(var(--primary)); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-neon-pulse {
+  animation: neon-pulse 1.5s ease-in-out infinite alternate;
+}
+
+.scroll-container {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
