@@ -29,7 +29,7 @@ const games: Game[] = [
     type: "Competition",
     players: "2-12 Players",
     description: "Test your visual perception in this fast-paced color matching challenge",
-    thumbnail: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    thumbnail: "https://github.com/ritesht04/ArcadeNexus/blob/main/attached_assets/findTheColor.jpg?raw=true",
     color: 'secondary'
   },
   {
@@ -38,7 +38,7 @@ const games: Game[] = [
     type: "Team",
     players: "3-20 Players",
     description: "Classic childhood game reimagined with futuristic twists and challenges",
-    thumbnail: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    thumbnail: "https://github.com/ritesht04/ArcadeNexus/blob/main/attached_assets/redLightGreenLight.jpg?raw=true",
     color: 'accent'
   },
   {
@@ -47,7 +47,7 @@ const games: Game[] = [
     type: "Solo/Competition",
     players: "1-6 Players",
     description: "Precision targeting game that tests your accuracy and reflexes",
-    thumbnail: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    thumbnail: "https://github.com/ritesht04/ArcadeNexus/blob/main/attached_assets/sharpShooter.jpg?raw=true",
     color: 'primary'
   }
 ];
