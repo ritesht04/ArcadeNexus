@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRightIcon, CheckIcon, PlayIcon, TrophyIcon, BookOpenIcon } from "lucide-react";
+import { useLocation } from "wouter";
 
 interface Game {
   id: string;
@@ -225,6 +226,7 @@ const GameCard = ({ game, isSelected, onSelect }: {
 export default function GameSelection() {
   const [selectedGame, setSelectedGame] = useState<string>("red-light-green");
   const [isStarting, setIsStarting] = useState(false);
+  const [, setLocation] = useLocation();
 
   // Get selected game object for dynamic background
   const selectedGameObj = games.find(game => game.id === selectedGame);
@@ -274,11 +276,13 @@ export default function GameSelection() {
   const handleStartGame = () => {
     if (selectedGame) {
       setIsStarting(true);
-      // Simulate game start
+      // Navigate to the selected game
       setTimeout(() => {
         setIsStarting(false);
-        console.log('Starting game:', selectedGame);
-      }, 2000);
+        const gameUrl = `/game/${selectedGame}`;
+        console.log('Navigating to:', gameUrl, 'selectedGame:', selectedGame);
+        setLocation(gameUrl);
+      }, 1000);
     }
   };
 

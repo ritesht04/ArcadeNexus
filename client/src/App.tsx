@@ -4,12 +4,15 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import GameSelection from "@/pages/game-selection";
+import GamePage from "@/pages/game-page";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={GameSelection} />
+      <Route path="/game/:gameId" component={GamePage} />
+      <Route path="/game/*" component={GamePage} />
       <Route component={NotFound} />
     </Switch>
   );
