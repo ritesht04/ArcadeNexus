@@ -348,7 +348,7 @@ export default function GameSelection() {
                 <h3 className="font-space text-xl font-bold mb-2 text-primary">More Games Available</h3>
                 <p className="text-muted-foreground text-sm mb-4">Discover additional gaming experiences</p>
                 <motion.button 
-                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium hover:from-secondary hover:to-accent transition-all duration-300 neon-glow"
+                  className="px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium hover:from-secondary hover:to-accent transition-all duration-300 neon-glow min-h-12"
                   onClick={handleShowMoreGames}
                   data-testid="button-more-games"
                   whileHover={{ scale: 1.05 }}
@@ -419,7 +419,7 @@ export default function GameSelection() {
             
             <div className="flex justify-center space-x-4">
               <motion.button 
-                className="px-6 py-2 rounded-lg border border-border text-muted-foreground hover:text-white hover:border-primary transition-all"
+                className="px-6 py-3 rounded-lg border border-border text-muted-foreground hover:text-white hover:border-primary transition-all min-h-12"
                 onClick={handleShowRules}
                 data-testid="button-game-rules"
                 whileHover={{ scale: 1.05 }}
@@ -429,7 +429,7 @@ export default function GameSelection() {
                 Game Rules
               </motion.button>
               <motion.button 
-                className="px-6 py-2 rounded-lg border border-border text-muted-foreground hover:text-white hover:border-secondary transition-all"
+                className="px-6 py-3 rounded-lg border border-border text-muted-foreground hover:text-white hover:border-secondary transition-all min-h-12"
                 onClick={handleShowLeaderboard}
                 data-testid="button-leaderboard"
                 whileHover={{ scale: 1.05 }}
