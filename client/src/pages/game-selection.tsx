@@ -226,6 +226,51 @@ export default function GameSelection() {
   const [selectedGame, setSelectedGame] = useState<string>("red-light-green");
   const [isStarting, setIsStarting] = useState(false);
 
+  // Get selected game object for dynamic background
+  const selectedGameObj = games.find(game => game.id === selectedGame);
+
+  // Dynamic background gradient based on selected game
+  const getDynamicBackground = (gameColor?: string) => {
+    switch (gameColor) {
+      case 'primary':
+        return {
+          background: 'linear-gradient(135deg, hsl(224 71% 4%) 0%, hsl(197 100% 8%) 25%, hsl(183 100% 6%) 50%, hsl(197 100% 10%) 75%, hsl(224 71% 4%) 100%)',
+          backgroundImage: `
+            radial-gradient(circle at 20% 20%, hsl(183 100% 43% / 0.4) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, hsl(197 100% 63% / 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, hsl(183 89% 36% / 0.2) 0%, transparent 50%)
+          `
+        };
+      case 'secondary':
+        return {
+          background: 'linear-gradient(135deg, hsl(224 71% 4%) 0%, hsl(269 15% 8%) 25%, hsl(258 90% 10%) 50%, hsl(269 39% 12%) 75%, hsl(224 71% 4%) 100%)',
+          backgroundImage: `
+            radial-gradient(circle at 20% 20%, hsl(258 90% 66% / 0.4) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, hsl(283 89% 50% / 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, hsl(269 89% 36% / 0.2) 0%, transparent 50%)
+          `
+        };
+      case 'accent':
+        return {
+          background: 'linear-gradient(135deg, hsl(224 71% 4%) 0%, hsl(142 15% 8%) 25%, hsl(142 76% 8%) 50%, hsl(142 39% 12%) 75%, hsl(224 71% 4%) 100%)',
+          backgroundImage: `
+            radial-gradient(circle at 20% 20%, hsl(142 76% 36% / 0.4) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, hsl(120 100% 25% / 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, hsl(142 89% 36% / 0.2) 0%, transparent 50%)
+          `
+        };
+      default:
+        return {
+          background: 'linear-gradient(135deg, hsl(224 71% 4%) 0%, hsl(269 15% 8%) 25%, hsl(224 71% 4%) 50%, hsl(283 39% 12%) 75%, hsl(224 71% 4%) 100%)',
+          backgroundImage: `
+            radial-gradient(circle at 20% 20%, hsl(283 89% 50% / 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, hsl(197 100% 63% / 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, hsl(142 76% 36% / 0.15) 0%, transparent 50%)
+          `
+        };
+    }
+  };
+
   const handleStartGame = () => {
     if (selectedGame) {
       setIsStarting(true);
@@ -272,7 +317,14 @@ export default function GameSelection() {
   }, [selectedGame]);
 
   return (
-    <div className="min-h-screen text-foreground">
+    <motion.div 
+      className="min-h-screen text-foreground transition-all duration-1000 ease-in-out"
+      style={getDynamicBackground(selectedGameObj?.color)}
+      animate={{ 
+        background: getDynamicBackground(selectedGameObj?.color).background 
+      }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+    >
       <FloatingParticles />
       
       {/* Header Section */}
@@ -397,6 +449,6 @@ export default function GameSelection() {
           </motion.div>
         </div>
       </main>
-    </div>
+    </motion.div>
   );
 }
