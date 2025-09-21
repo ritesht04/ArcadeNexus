@@ -20,7 +20,7 @@ const games: Game[] = [
     type: "Solo/Team",
     players: "1-8 Players",
     description: "Race against time as the ground beneath you turns to molten rock",
-    thumbnail: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    thumbnail: "https://github.com/ritesht04/ArcadeNexus/blob/main/attached_assets/escapeTheLava.jpg?raw=true",
     color: 'primary'
   },
   {
