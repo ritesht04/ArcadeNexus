@@ -261,4 +261,4 @@ If you have any questions or need help, please:
 
 ---
 
-**Built with ❤️ by the ArcadeNexus Team**
+**Built with ❤️ by Ritesh Trivedi**
